@@ -3,12 +3,12 @@ const NOMBRE_TIENDA = "Comiquería Central";
 const PRECIO_UNITARIO = 8500;
 
 
-// FUNCIÓN FLECHA CON RETORNO IMPLÍCITO
+
 const calcularSubtotal = (cantidad, precio) =>
     cantidad * precio;
 
 
-// CALCULAR DESCUENTO
+
 function calcularDescuento(
     cantidad,
     subtotal
@@ -30,7 +30,6 @@ function calcularDescuento(
 }
 
 
-// MOSTRAR COMPRA
 function mostrarCompra(
     comic,
     cantidad,
@@ -59,7 +58,7 @@ Total: $${total.toFixed(2)}
 }
 
 
-// FUNCIÓN PRINCIPAL
+
 function iniciarSimulador() {
 
     alert(
@@ -67,8 +66,7 @@ function iniciarSimulador() {
     );
 
 
-    // Muestra el catálogo.
-    // Ya no lo modifica cada vez que inicia.
+    
     mostrarCatalogo(catalogo);
 
 
@@ -105,7 +103,7 @@ function iniciarSimulador() {
     );
 
 
-    // VALIDACIÓN CON WHILE
+    
     while (
         isNaN(cantidad) ||
         cantidad <= 0
@@ -145,8 +143,7 @@ function iniciarSimulador() {
 }
 
 
-// SE EJECUTA UNA SOLA VEZ
-// CUANDO CARGA LA PÁGINA
+
 document.addEventListener(
     "DOMContentLoaded",
     function () {
