@@ -1,24 +1,11 @@
 # Comiquería Central - Pre-Entrega 4
 
-Se utilizan métodos como:
+Proyecto realizado para la Pre-Entrega 4 de JavaScript en Coderhouse.
 
-* `push()`
-* `pop()`
-* `unshift()`
-* `shift()`
-* `includes()`
-* `indexOf()`
-* `splice()`
+En esta entrega agregué Arrays al simulador de una comiquería.
 
-También uso `for...of` para recorrer el catálogo y sigo trabajando con funciones, condicionales y ciclos.
+Uso `push()`, `pop()`, `unshift()`, `shift()`, `includes()`, `indexOf()`, `splice()` y `for...of`.
 
-## Estructura
+También agregué un catálogo, buscador y carrito funcional.
 
-```text
-index.html
-js/
-  catalogo.js
-  main.js
-```
-
-El proyecto permite buscar productos, modificar el catálogo y calcular una compra con descuentos.
+La modificación inicial del catálogo se ejecuta una sola vez cuando carga la página.

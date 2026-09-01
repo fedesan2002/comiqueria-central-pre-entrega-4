@@ -7,98 +7,124 @@ const catalogo = [
 ];
 
 
-
+// MANIPULACIÓN DEL ARRAY
 function modificarCatalogo() {
 
-    
+    // Agrega un producto al final
     catalogo.push("Dandadan");
-    console.log("Se agregó Dandadan al final");
 
-
+    // Agrega un producto al principio
     catalogo.unshift("Kagurabachi");
-    console.log("Se agregó Kagurabachi al principio");
 
-
+    // Elimina el último producto y guarda el valor
     const eliminadoFinal = catalogo.pop();
+    console.log(`Se ha eliminado el elemento: ${eliminadoFinal}`);
 
-    console.log(
-        `Se ha eliminado el elemento: ${eliminadoFinal}`
-    );
-
-
+    // Agrega temporalmente al principio
     catalogo.unshift("Chainsaw Man");
 
-
+    // Elimina el primero
     const eliminadoInicio = catalogo.shift();
+    console.log(`Se eliminó del inicio: ${eliminadoInicio}`);
 
-    console.log(
-        `Se eliminó del inicio: ${eliminadoInicio}`
-    );
-
-
-    // Modifica un elemento mediante su índice
+    // Modifica un producto por índice usando splice
     const indiceModificar = 2;
-
     const productoAnterior = catalogo[indiceModificar];
 
-
-    // Reemplaza el producto mediante splice
-    catalogo.splice(
-        indiceModificar,
-        1,
-        "Daredevil"
-    );
-
+    catalogo.splice(indiceModificar, 1, "Daredevil");
 
     console.log(
         `Se reemplazó "${productoAnterior}" por "${catalogo[indiceModificar]}"`
     );
+
+    // Dejamos Dandadan disponible en el catálogo final
+    catalogo.push("Dandadan");
 }
 
 
-function mostrarCatalogo(lista) {
+// RECORRIDO CON FOR...OF
+function obtenerReporteCatalogo(lista) {
 
     let mensaje = "CATÁLOGO DISPONIBLE\n\n";
 
-
-    for (const comic of lista) {
-
-        mensaje += `Producto: ${comic}\n`;
+    for (const producto of lista) {
+        mensaje += `Producto: ${producto}\n`;
     }
 
-
-    alert(mensaje);
-
     console.log(mensaje);
-
 
     return mensaje;
 }
 
 
+// BÚSQUEDA CON INCLUDES E INDEXOF
+function buscarProducto(nombreBuscado) {
 
-function buscarProducto(nombre) {
+    const nombresMinuscula = [];
 
-    // Verifica si el producto existe
-    if (catalogo.includes(nombre)) {
-
-        // Obtiene su posición
-        const posicion = catalogo.indexOf(nombre);
-
-
-        alert(
-            `${nombre} está disponible.\nÍndice: ${posicion}`
-        );
-
-
-        return true;
+    for (const producto of catalogo) {
+        nombresMinuscula.push(producto.toLowerCase());
     }
 
+    const busqueda = nombreBuscado.trim().toLowerCase();
 
-    alert(
-        `${nombre} no se encuentra en el catálogo.`
-    );
+    if (nombresMinuscula.includes(busqueda)) {
+
+        const posicion = nombresMinuscula.indexOf(busqueda);
+
+        return {
+            existe: true,
+            posicion: posicion,
+            nombre: catalogo[posicion]
+        };
+    }
+
+    return {
+        existe: false,
+        posicion: -1,
+        nombre: ""
+    };
+}
 
 
-    return false;
+// GENERA EL CATÁLOGO VISUAL
+function renderizarCatalogo() {
+
+    const contenedor = document.getElementById("productosGrid");
+
+    let html = "";
+    let indice = 0;
+
+    for (const producto of catalogo) {
+
+        const nombreSeguro = JSON.stringify(producto);
+
+        html += `
+            <article
+                class="product-card"
+                id="producto-${indice}"
+            >
+                <div class="product-cover cover-${indice % 6}">
+                    <span>${producto}</span>
+                </div>
+
+                <div class="product-info">
+                    <span class="product-category">CÓMIC / MANGA</span>
+                    <h3>${producto}</h3>
+                    <p class="price">$8.500</p>
+
+                    <button
+                        type="button"
+                        onclick='agregarAlCarrito(${nombreSeguro})'
+                    >
+                        Agregar al carrito
+                    </button>
+                </div>
+            </article>
+        `;
+
+        indice++;
+    }
+
+    contenedor.innerHTML = html;
 }
