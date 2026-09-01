@@ -278,9 +278,6 @@ function buscarDesdeWeb() {
 }
 
 
-// ======================
-// SIMULADOR
-// ======================
 
 function iniciarSimulador() {
 
