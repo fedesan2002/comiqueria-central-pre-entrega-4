@@ -4,11 +4,10 @@ const PRECIO_UNITARIO = 8500;
 let carrito = [];
 
 
-// FUNCIÓN FLECHA CON RETORNO IMPLÍCITO
 const calcularSubtotal = (cantidad, precio) => cantidad * precio;
 
 
-// DESCUENTOS
+
 function calcularDescuento(cantidad, subtotal) {
 
     if (cantidad >= 3) {
@@ -23,9 +22,6 @@ function calcularDescuento(cantidad, subtotal) {
 }
 
 
-// ======================
-// CARRITO
-// ======================
 
 function agregarAlCarrito(nombreProducto) {
 
@@ -228,9 +224,7 @@ function finalizarCompra() {
 }
 
 
-// ======================
-// BUSCADOR
-// ======================
+
 
 function buscarDesdeWeb() {
 
