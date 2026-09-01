@@ -7,27 +7,27 @@ const catalogo = [
 ];
 
 
-// MANIPULACIÓN DEL ARRAY
+
 function modificarCatalogo() {
 
-    // Agrega un producto al final
+
     catalogo.push("Dandadan");
 
-    // Agrega un producto al principio
+   
     catalogo.unshift("Kagurabachi");
 
-    // Elimina el último producto y guarda el valor
+    
     const eliminadoFinal = catalogo.pop();
     console.log(`Se ha eliminado el elemento: ${eliminadoFinal}`);
 
-    // Agrega temporalmente al principio
+
     catalogo.unshift("Chainsaw Man");
 
-    // Elimina el primero
+
     const eliminadoInicio = catalogo.shift();
     console.log(`Se eliminó del inicio: ${eliminadoInicio}`);
 
-    // Modifica un producto por índice usando splice
+
     const indiceModificar = 2;
     const productoAnterior = catalogo[indiceModificar];
 
@@ -37,12 +37,12 @@ function modificarCatalogo() {
         `Se reemplazó "${productoAnterior}" por "${catalogo[indiceModificar]}"`
     );
 
-    // Dejamos Dandadan disponible en el catálogo final
+    
     catalogo.push("Dandadan");
 }
 
 
-// RECORRIDO CON FOR...OF
+
 function obtenerReporteCatalogo(lista) {
 
     let mensaje = "CATÁLOGO DISPONIBLE\n\n";
@@ -57,7 +57,7 @@ function obtenerReporteCatalogo(lista) {
 }
 
 
-// BÚSQUEDA CON INCLUDES E INDEXOF
+
 function buscarProducto(nombreBuscado) {
 
     const nombresMinuscula = [];
@@ -87,7 +87,6 @@ function buscarProducto(nombreBuscado) {
 }
 
 
-// GENERA EL CATÁLOGO VISUAL
 function renderizarCatalogo() {
 
     const contenedor = document.getElementById("productosGrid");
