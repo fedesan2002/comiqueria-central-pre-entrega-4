@@ -1,9 +1,5 @@
 # Comiquería Central - Pre-Entrega 4
 
-Proyecto realizado para la Pre-Entrega 4 de JavaScript en Coderhouse.
-
-En esta entrega agregué el uso de Arrays al simulador de compra de una comiquería.
-
 Se utilizan métodos como:
 
 * `push()`
